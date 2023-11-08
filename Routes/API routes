@@ -50,7 +50,7 @@ router.delete('/notes/:id', (req, res) => {
 
   const updatedNotes = notes.filter((note) => note.id !== noteId);
 
-  fs.writeFile(path.join(__dirname, '../db.json'), JSON.stringify(updatedNotes), (err) => {
+  fs.writeFile(path.join(__dirname, './db.json'), JSON.stringify(updatedNotes), (err) => {
     if (err) {
       console.error(err);
       return res.status(500).send('An error occurred while deleting a note.');
