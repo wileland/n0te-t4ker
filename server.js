@@ -16,14 +16,16 @@ app.get('/notes', (req, res) => {
 
 // GET /api/notes: Read the db.json file and return all saved notes as JSON
 app.get('/api/notes', (req, res) => {
-  fs.readFile(path.join(__dirname, 'db.json'), 'utf8', (err, data) => {
-    if (err) {
-      console.error(err);
-      return res.status(500).send('An error occurred while retrieving notes.');
-    }
-    res.json(JSON.parse(data));
-  });
+  try {
+    const data = fs.readFileSync(path.join(__dirname, 'db.json'), 'utf8');
+    const notes = JSON.parse(data);
+    res.json(notes);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: 'An error occurred while retrieving notes.' });
+  }
 });
+
 
 // POST /api/notes: Receive a new note to add to the db.json file, and return the new note
 app.post('/api/notes', (req, res) => {
@@ -36,7 +38,7 @@ app.post('/api/notes', (req, res) => {
   fs.readFile(path.join(__dirname, 'db.json'), 'utf8', (err, data) => {
     if (err) {
       console.error(err);
-      return res.status(500).send('An error occurred while reading notes.');
+      return res.status(500).json({ error: 'An error occurred while reading notes.' });
     }
 
     const notes = JSON.parse(data);
@@ -45,7 +47,7 @@ app.post('/api/notes', (req, res) => {
     fs.writeFile(path.join(__dirname, 'db.json'), JSON.stringify(notes, null, 2), (err) => {
       if (err) {
         console.error(err);
-        return res.status(500).send('An error occurred while saving the new note.');
+        return res.status(500).json({ error: 'An error occurred while saving the new note.' });
       }
       res.json(newNote);
     });
@@ -57,7 +59,7 @@ app.delete('/api/notes/:id', (req, res) => {
   fs.readFile(path.join(__dirname, 'db.json'), 'utf8', (err, data) => {
     if (err) {
       console.error(err);
-      return res.status(500).send('An error occurred while reading notes.');
+      return res.status(500).json({ error: 'An error occurred while reading notes.' });
     }
 
     let notes = JSON.parse(data);
@@ -66,7 +68,7 @@ app.delete('/api/notes/:id', (req, res) => {
     fs.writeFile(path.join(__dirname, 'db.json'), JSON.stringify(notes, null, 2), (err) => {
       if (err) {
         console.error(err);
-        return res.status(500).send('An error occurred while deleting the note.');
+        return res.status(500).json({ error: 'An error occurred while deleting the note.' });
       }
       res.json({ message: 'Note deleted successfully.' });
     });

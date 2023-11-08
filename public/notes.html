@@ -15,71 +15,62 @@
     <a class="navbar-brand text-light p-3" href="/">Note Taker</a>
     <div class="icons">
       <!-- Button to trigger adding a new note -->
-      <button type="button" class="btn btn-outline-light btn-sm save-note" id="save-note">
+      <button type="button" class="btn btn-outline-light btn-sm" id="save-note">
         <span class="fas fa-save"></span>
         <span>Save Note</span>
       </button>
       <!-- Button to trigger a new note creation form -->
-      <button type="button" class="btn btn-outline-light btn-sm new-note" id="new-note">
+      <button type="button" class="btn btn-outline-light btn-sm" id="new-note">
         <span class="fas fa-edit"></span>
         <span>New Note</span>
       </button>
       <!-- Button to clear the current note form -->
-      <button type="button" class="btn btn-sm btn-outline-danger clear-btn" id="clear-form">
+      <button type="button" class="btn btn-sm btn-outline-danger" id="clear-form">
         <span class="fas fa-times"></span>
         <span>Clear Form</span>
       </button>
     </div>
   </nav>
-  
       
-        <button type="button" class="btn btn-outline-light btn-sm save-note">
-          <span class="fas fa-save"></span>
-          <span>Save Note</span>
-        </button>
-        <button type="button" class="btn btn-outline-light btn-sm new-note">
-          <span class="fas fa-edit"></span>
-          <span>New Note</span>
-        </button>
-        <button type="button" class="btn btn-sm btn-outline-danger clear-btn">
-          <span class="fas fa-times"></span>
-          <span>Clear Form</span>
-        </button>
+  <button type="button" class="btn btn-outline-light btn-sm save-note" id="save-note">
+    <span class="fas fa-save"></span>
+    <span>Save Note</span>
+  </button>
+  <button type="button" class="btn btn-outline-light btn-sm new-note" id="new-note">
+    <span class="fas fa-edit"></span>
+    <span>New Note</span>
+  </button>
+  <button type="button" class="btn btn-sm btn-outline-danger clear-btn" id="clear-form">
+    <span class="fas fa-times"></span>
+    <span>Clear Form</span>
+  </button>
+      
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-4 list-container">
+        <ul class="list-group" id="notes-container"></ul>
       </div>
-    </nav>
-    <div class="container-fluid">
-      <div class="row">
-        <div class="col-4 list-container">
-          <ul class="list-group" id="notes-container"></ul>
-        </div>
-        <div class="col-8">
-          <form class="note-form" id="note-form">
-            <input
-              id="note-title"
-              class="note-title"
-              placeholder="Note Title"
-              maxlength="28"
-              type="text"
-              required
-            />
-            <textarea
-              id="note-text"
-              class="note-textarea"
-              placeholder="Note Text"
-              required
-            ></textarea>
-            <button type="submit" class="btn btn-primary">Save Note</button>
-          </form>
-        </div>
+      <div class="col-8">
+        <form class="note-form" id="note-form">
+          <input
+            id="note-title"
+            class="note-title"
+            placeholder="Note Title"
+            maxlength="28"
+            type="text"
+            required
+          />
+          <textarea
+            id="note-text"
+            class="note-textarea"
+            placeholder="Note Text"
+            required
+          ></textarea>
+          <button type="submit" class="btn btn-primary" id="save-note-button">Save Note</button>
+        </form>
       </div>
     </div>
-    <script src="index.js"></script>
-  </body>
-  </html>
-
-  
-  
-  
-  
-  
-  
+  </div>
+  <script src="client.js"></script>
+</body>
+</html>
