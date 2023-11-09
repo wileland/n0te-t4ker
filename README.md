@@ -15,7 +15,7 @@ The n0te t4ker is a streamlined, web-based application that empowers users to ef
 
 ## Technical Journey
 
-Our development journey began with establishing a stable Express.js server, forming the backbone of our application's backend. We committed to writing maintainable, scalable code, and ensuring seamless frontend integration. Here are key milestones we achieved:
+The development journey began with establishing a stable Express.js server, forming what became the backbone of my application's backend. I then committed to writing maintainable, scalable code, and ensuring seamless frontend integration while attempting some OOP best-practices. Here are some of the key milestones achieved:
 
 - **RESTful API Design**: Our endpoints handle CRUD operations with finesse, offering a blueprint for RESTful practices.
 - **Persistent Storage**: Employing a JSON file, we simulated database interactions to retain notes between sessions.
