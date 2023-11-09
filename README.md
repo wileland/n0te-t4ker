@@ -22,7 +22,7 @@ THEN that note appears in the right-hand column and a "New Note" button appears 
 WHEN I click on the "New Note" button in the navigation at the top of the page
 THEN I am presented with empty fields to enter a new note title and the note’s text in the right-hand column and the button disappears
 
-NOTE T4...
+NOTE T4ke.
 ├── db
 │   └── db.json
 ├── node_modules
