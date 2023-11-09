@@ -64,11 +64,11 @@ To get started with the n0te t4ker, follow these steps:
 
 4. **User Story & Acceptance Criteria**
 
-I. User Story:
+    I. User Story:
 
 As a small business owner, I want to write and save notes so I can organize my thoughts and keep track of tasks I need to complete.
 
-II. Acceptance Criteria:
+    II. Acceptance Criteria:
 
 GIVEN a note-taking application
 WHEN I open the Note Taker
