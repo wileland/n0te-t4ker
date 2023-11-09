@@ -66,7 +66,9 @@ To get started with the n0te t4ker, follow these steps:
 
     I. User Story:
 
-As a small business owner, I want to write and save notes so I can organize my thoughts and keep track of tasks I need to complete.
+    As a small business owner, I want to write and save
+    notes so I can organize my thoughts and keep track of
+    tasks I need to complete.
 
     II. Acceptance Criteria:
 
