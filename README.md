@@ -1,13 +1,10 @@
-markdown
-Copy code
-
 # n0te t4ker
 
 ## Overview
 
 The n0te t4ker is a streamlined, web-based application that empowers users to effortlessly create, view, and manage notes. This tool is ideal for both personal and professional note management, offering a clean and intuitive user interface, underpinned by a solid Express.js backend.
 
-## Features
+## Features:
 
 - **Create Notes**: Users can effortlessly add new notes, complete with titles and content.
 - **View Notes**: All notes are conveniently displayed for easy access and review.
@@ -41,37 +38,34 @@ The development journey began with establishing a stable Express.js server, form
 - `POST /api/notes`: Create a new note.
 - `DELETE /api/notes/:id`: Delete a note by ID.
 
-## How to Engage with n0te t4ker
+## How to Engage with n0te t4ker?
 
-To get started with the n0te t4ker, follow these steps:
+To get started with the n0te t4ker app, follow these steps:
 
-1. **Clone the Repository**:
-   ```sh
-   git clone https://github.com/your-username/note-taker.git
+1. **Clone the Repository**
+   git clone https://github.com/your-username/note-taker.
    Install Dependencies:
    Navigate to your cloned repository and run:
-   sh
-   ```
-2. **Copy code**
+   
+   
+2. **Install Dependencies & Other Technologies**
    npm install
-   Initialize the Application:
-   Kick-start the server with:
-   sh
-   Copy code
+   Initialize the Application
+   More coming soon!
+   
+   
 3. **NPM Start & Access the Application**
    Launch a web browser and navigate to http://localhost:3000 to begin managing your notes.
-   Testing
+   
 
 4. **User Story & Acceptance Criteria**
 
     I. User Story:
-
     As a small business owner, I want to write and save
     notes so I can organize my thoughts and keep track of
     tasks I need to complete.
 
-    II. Acceptance Criteria:
-
+II. Acceptance Criteria:
 GIVEN a note-taking application
 WHEN I open the Note Taker
 THEN I am presented with a landing page with a link to a notes page
@@ -86,9 +80,9 @@ THEN that note appears in the right-hand column and a "New Note" button appears 
 WHEN I click on the "New Note" button in the navigation at the top of the page
 THEN I am presented with empty fields to enter a new note title and the note’s text in the right-hand column and the button disappears
 
-       III. **Mock-Up (.Gif)** (https://) *-Link coming soon!*
+       III. **![Mock-Up](https://) (.GIF)**  *-Link coming soon!*
 
-       IV. n0te t4ker: File Directory**
+       IV. **n0te t4ker: File Directory**
 
 ├── node_modules
 ├── public
@@ -105,24 +99,21 @@ THEN I am presented with empty fields to enter a new note title and the note’s
 ├── package.json
 ├── README.md
 └── **server.js**
-
-
+        -Javascript files- bolded
+        -HTML files- italicised
+ _______________________________________________________________
 
 V. License
-
 Distributed under the MIT License. See LICENSE for more information.
 
 VI. Contact
+~William Haynes - @your_twitter - wileland7@gmail.com
 
-William Haynes - @your_twitter - wileland7@gmail.com
-
-VII. Project Link
-
-https://github.com/your-username/note-taker
+  VII. Project Link: 
+     https://github.com/your-username/note-taker
 
 
-VIII. Contributions
-
+VIII. Contributions-
     Coming soon - We're excited to see how the community will help n0te t4ker evolve.
 
 IX. Technical Note (code):
