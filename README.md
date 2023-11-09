@@ -39,8 +39,9 @@ API endpoints have been rigorously tested using Insomnia to ensure they meet fun
 Follow these steps to get started with the Note Taker application:
 
 I. **Clone the repository**:
-   ```sh
-   git clone https://github.com/your-username/note-taker.git
+
+```sh
+git clone https://github.com/your-username/note-taker.git
 
 II. Install dependencies:
 
@@ -105,3 +106,4 @@ NOTE T4ke
 ├── package.json
 ├── README.md
 └── server.js
+```

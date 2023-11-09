@@ -1,4 +1,10 @@
-node_modules
-package-lock.json
+# Dependencies
+/node_modules
+
+# Package lock file (uncomment if you decide not to include it in version control)
+# /package-lock.json
+
+# Editor directories and files
 .vscode
-.DS_Store
+
+
