@@ -4,11 +4,13 @@
 
 The n0te t4ker is a streamlined, web-based application that empowers users to effortlessly create, view, and manage notes. This tool is ideal for both personal and professional note management, offering a clean and intuitive user interface, underpinned by a solid Express.js backend.
 
+
 ## Features:
 
 - **Create Notes**: Users can effortlessly add new notes, complete with titles and content.
 - **View Notes**: All notes are conveniently displayed for easy access and review.
 - **Delete Notes**: Outdated or unnecessary notes can be removed, maintaining a clutter-free note space.
+
 
 ## Technical Journey
 
