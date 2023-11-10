@@ -93,7 +93,7 @@ Experience the user-friendly interface of n0te t4ker by checking out the mock-up
 │ ├── *index.html*
 │ ├── *notes.html*
 │ ├── styles.css
-│ └── **client.js**
+│ └── **client.js** -(client-side JS)
 ├── Routes
 │ ├── **apiRoutes.js**
 │ └── **htmlRoutes.js**
@@ -102,7 +102,7 @@ Experience the user-friendly interface of n0te t4ker by checking out the mock-up
 ├── package-lock.json
 ├── package.json
 ├── README.md
-└── **server.js**
+└── **server.js** -(server-side JS)
 
    **->Javascript files- bolded**
    *->HTML files- italicised*

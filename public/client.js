@@ -135,7 +135,7 @@ function saveNewNote() {
 // Function to delete a note
 function deleteNote(noteId) {
   fetch(`/api/notes/${noteId}`, {
-    method: 'DELETE',
+    method: 'DELETE'
   })
   .then(response => {
     if (!response.ok) {
@@ -152,6 +152,7 @@ function deleteNote(noteId) {
     displayError('Error deleting the note. Please try again.');
   });
 }
+
 
 // Function to initialize the page and set up event listeners
 function initializePage() {
