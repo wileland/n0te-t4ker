@@ -10,6 +10,7 @@ The n0te t4ker is a streamlined, web-based application that empowers users to ef
 - **Create Notes**: Users can effortlessly add new notes, complete with titles and content.
 - **View Notes**: All notes are conveniently displayed for easy access and review.
 - **Delete Notes**: Outdated or unnecessary notes can be removed, maintaining a clutter-free note space.
+- **Persistent Storage**: Notes are saved in a database for long-term retention.
 
 
 ## Technical Journey
@@ -86,7 +87,7 @@ THEN I am presented with empty fields to enter a new note title and the note’s
 Experience the user-friendly interface of n0te t4ker by checking out the mock-up:
 
        IV. **n0te t4ker: File Directory**
-
+|___ images 
 ├── node_modules
 ├── public
 │ ├── *index.html*
@@ -102,8 +103,9 @@ Experience the user-friendly interface of n0te t4ker by checking out the mock-up
 ├── package.json
 ├── README.md
 └── **server.js**
-        -Javascript files- bolded
-        -HTML files- italicised
+
+   **->Javascript files- bolded**
+   *->HTML files- italicised*
  _______________________________________________________________
 
 V. License
@@ -123,9 +125,15 @@ IX. Technical Note (code):
 
  The source code for the application is housed in the server.js file, with front-end logic within the public/client.js. Middleware in the JS, and Routes are broken down into two folders dividing the tasks between HTML & API routes. The other real trick was getting the two ends (client and server)to shake hands and work together (even though, getting the notes to work was like whack-a-mole). As mentioned prior, Insomnia was used to failsafe that aspect of the challenge, and I only wish I'd used it sooner.
 
-    Furthermore, the app's code ongoingly uses node,
-    and the entire thing is deployed on Heroku. On a 
-    *side-note* (ha-ha), this project is open-source and encourages community engagement. One love.
+    Furthermore, the app's code ongoingly uses node for the front-end,
+    and the entire thing is deployed on Heroku for back-end. On a 
+    *side-note* (ha-ha), this project is open-source and encourages community engagement. One love. But, seriously? Getting the notes to work as expected per the acceptance criteria is like a can of worms! Outstanding exercise to practice some real troubleshooting errors with the DOM.
+My last commit at the time of writing this involved:
+Ensured that all the needed functions and event listeners are included.
+Updated the event listeners to match the correct button IDs.
+Added the clearForm function and its event listener.
+Made sure the toggleButtons function is called in the appropriate places to correctly manage button visibility.
+Kept the naming convention for the 'Save Note' button consistent (save-note-button) across the HTML and JavaScript.
 
 
 **X. BONUS**
