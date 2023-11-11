@@ -110,5 +110,54 @@
   }
 }
 
-/* Additional styling as needed based on the specifics of your mockup */
-/* ... */
+/* Styles for the notes list with vertical lines */
+.note {
+  border: 1px solid #ddd; /* Light border for each note */
+  margin: 5px; /* Spacing around notes */
+  padding: 10px; /* Spacing within notes */
+  background-color: #fff; /* White background for notes */
+  position: relative; /* Position relative for absolute positioning of delete button */
+  border-right: 1px solid #dee2e6; /* Bootstrap border color for vertical lines */
+}
+
+/* Delete button with a trashcan icon from FontAwesome */
+.delete-btn {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 1.2em;
+}
+
+/* If using FontAwesome */
+.delete-btn::before {
+  content: "\f1f8"; /* FontAwesome unicode for trashcan */
+  font-family: 'FontAwesome';
+}
+
+/* Additional styles for grid lines on smaller screens if necessary */
+@media (max-width: 768px) {
+  .note {
+    border-right: none; /* Remove vertical lines on smaller screens if desired */
+  }
+}
+
+/* Message container styles */
+#message-container {
+  margin-top: 10px;
+  height: 30px;
+  line-height: 30px;
+  text-align: center;
+  font-weight: bold;
+  transition: all 0.3s ease; /* Smoothly show and hide messages */
+}
+
+.success {
+  color: #28a745;
+}
+
+.error {
+  color: #dc3545;
+}

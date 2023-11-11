@@ -2,20 +2,23 @@
 
 let allNotes = []; // This will hold all notes
 
-// Helper function to display errors
-function displayError(message) {
-  alert(message); // Simple alert for the error message
-}
-
-// Helper function to display success messages
-function displaySuccess(message) {
-  alert(message); // Simple alert for the success message
+// Helper function to display messages in the UI instead of alert
+function displayMessage(message, isError = false) {
+  const messageContainer = document.getElementById('message-container');
+  messageContainer.textContent = message;
+  messageContainer.className = isError ? 'error' : 'success'; // Add classes for styling
+  // Hide the message after 3 seconds
+  setTimeout(() => {
+    messageContainer.textContent = '';
+    messageContainer.className = '';
+  }, 3000);
 }
 
 // Helper function to create a delete button for a note
 function createDeleteButton(noteId) {
   const deleteButton = document.createElement('button');
   deleteButton.textContent = 'Delete';
+  deleteButton.className = 'delete-btn'; // Assign class for styling
   deleteButton.onclick = () => deleteNote(noteId);
   deleteButton.id = `delete-note-${noteId}`; // Assign an ID to the delete button
   return deleteButton;
@@ -48,14 +51,15 @@ function fetchNotes() {
       updateNoteList();
     })
     .catch(error => {
-      displayError('Error fetching notes. Please try again later.');
+      console.error('Error fetching notes:', error);
+      displayMessage('Error fetching notes. Please try again later.', true);
     });
 }
 
 // Helper function to update the list of notes in the UI
 function updateNoteList() {
   const listGroup = document.getElementById('notes-container');
-  listGroup.innerHTML = '';
+  listGroup.innerHTML = ''; // Clear the list before updating
   allNotes.forEach(note => {
     const noteListItem = createNoteElement(note);
     listGroup.appendChild(noteListItem);
@@ -68,16 +72,16 @@ function viewNote(note) {
   const noteText = document.getElementById('note-text');
   noteTitle.value = note.title;
   noteText.value = note.text;
-  document.getElementById('new-note').style.display = 'block';
   document.getElementById('save-note').style.display = 'none';
+  document.getElementById('new-note').style.display = 'block';
 }
 
 // Function to prepare the form for a new note
 function prepareNewNote() {
   document.getElementById('note-title').value = '';
   document.getElementById('note-text').value = '';
-  document.getElementById('new-note').style.display = 'block';
-  document.getElementById('save-note').style.display = 'none';
+  document.getElementById('save-note').style.display = 'block';
+  document.getElementById('new-note').style.display = 'none';
   document.getElementById('note-title').focus();
   toggleButtons();
 }
@@ -89,21 +93,17 @@ function toggleButtons() {
   const isInputEmpty = title.length === 0 && text.length === 0;
   document.getElementById('save-note').style.display = isInputEmpty ? 'none' : 'block';
   document.getElementById('clear-form').style.display = isInputEmpty ? 'none' : 'block';
-  document.getElementById('new-note').style.display = isInputEmpty ? 'block' : 'none';
+  document.getElementById('new-note').style.display = !isInputEmpty ? 'none' : 'block';
 }
 
 // Function to save a new note
-function saveNewNote() {
+function saveNewNote(event) {
+  event.preventDefault(); // Prevent default form submission behavior
   const title = document.getElementById('note-title').value.trim();
   const text = document.getElementById('note-text').value.trim();
-  if (!title || !text) {
-    displayError('Title and text are required to save a note.');
-    return;
-  }
 
-  const existingNote = allNotes.find(note => note.title === title && note.text === text);
-  if (existingNote) {
-    displayError('This note already exists.');
+  if (!title || !text) {
+    displayMessage('Title and text are required to save a note.', true);
     return;
   }
 
@@ -116,51 +116,46 @@ function saveNewNote() {
     body: JSON.stringify(newNote),
   })
   .then(response => {
-    if (!response.ok) {
-      throw new Error('Network response was not ok');
-    }
+    if (!response.ok) throw new Error('Network response was not ok');
     return response.json();
   })
   .then(savedNote => {
     allNotes.push(savedNote);
     updateNoteList();
     prepareNewNote();
-    displaySuccess('Note saved successfully.');
+    displayMessage('Note saved successfully.');
   })
   .catch(error => {
-    displayError('Error saving the new note. Please try again.');
+    console.error('Error saving the new note:', error);
+    displayMessage('Error saving the new note. Please try again.', true);
   });
 }
 
 // Function to delete a note
 function deleteNote(noteId) {
   fetch(`/api/notes/${noteId}`, {
-    method: 'DELETE'
+    method: 'DELETE',
   })
   .then(response => {
-    if (!response.ok) {
-      throw new Error('Network response was not ok');
-    }
+    if (!response.ok) throw new Error('Network response was not ok');
     return response.json();
   })
-  .then(responseData => {
+  .then(() => {
     allNotes = allNotes.filter(note => note.id !== noteId);
     updateNoteList();
-    displaySuccess(responseData.message);
+    displayMessage('Note deleted successfully.');
   })
   .catch(error => {
-    displayError('Error deleting the note. Please try again.');
+    console.error('Error deleting the note:', error);
+    displayMessage('Error deleting the note. Please try again.', true);
   });
 }
 
-
-// Function to initialize the page and set up event listeners
-function initializePage() {
-  document.getElementById('new-note').addEventListener('click', prepareNewNote);
-  document.getElementById('save-note').addEventListener('click', saveNewNote);
-  toggleButtons(); // Call this initially to set the correct button states
-  fetchNotes();
-}
-
-// Set up the page once the DOM is fully loaded
-document.addEventListener('DOMContentLoaded', initializePage);
+// Initialize the page and set up event listeners
+document.addEventListener('DOMContentLoaded', () => {
+  document.getElementById('note-form').addEventListener('submit', saveNewNote);
+  document.getElementById('clear-form').addEventListener('click', prepareNewNote);
+  document.getElementById('note-title').addEventListener('input', toggleButtons);
+  document.getElementById('note-text').addEventListener('input', toggleButtons);
+  fetchNotes(); // Load notes when the page is initialized
+});
