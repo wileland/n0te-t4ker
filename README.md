@@ -112,10 +112,10 @@ V. License
 Distributed under the MIT License. See LICENSE for more information.
 
 VI. Contact
-~William Haynes - @your_twitter - wileland7@gmail.com
+~William Haynes -wileland7@gmail.com
 
   VII. Project Link: 
-     https://github.com/your-username/note-taker
+     https://github.com/wileland/n0te-t4ker/
 
 
 VIII. Contributions-
@@ -140,4 +140,4 @@ Kept the naming convention for the 'Save Note' button consistent (save-note-butt
 
 n0te t4ker can delete!
 
-Remember to replace placeholders like `@your_twitter` and the GitHub URL with your ac
+
